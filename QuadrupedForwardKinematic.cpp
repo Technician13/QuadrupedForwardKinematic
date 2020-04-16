@@ -64,30 +64,30 @@ double QuadrupedForwardKinematic::calc_lyz()
     return lyz;
 }
 
-float QuadrupedForwardKinematic::calc_L_pos_y()
-{
-    L_pos_y = -(h*cos(gamma)+lyz*sin(gamma));
-    std::cout<<L_pos_y<<std::endl;
-    return L_pos_y;
-}
-
-float QuadrupedForwardKinematic::calc_L_pos_z()
-{
-    L_pos_z = h*sin(gamma)-lyz*cos(gamma);
-    std::cout<<L_pos_z<<std::endl;
-    return L_pos_z;
-}
-
 float QuadrupedForwardKinematic::calc_R_pos_y()
 {
-    R_pos_y = h*cos(gamma)-lyz*sin(gamma);
+    R_pos_y = -(h*cos(gamma)+lyz*sin(gamma));
     std::cout<<R_pos_y<<std::endl;
     return R_pos_y;
 }
 
 float QuadrupedForwardKinematic::calc_R_pos_z()
 {
-    R_pos_z = -h*sin(gamma)-lyz*cos(gamma);
+    R_pos_z = h*sin(gamma)-lyz*cos(gamma);
     std::cout<<R_pos_z<<std::endl;
     return R_pos_z;
+}
+
+float QuadrupedForwardKinematic::calc_L_pos_y()
+{
+    L_pos_y = h*cos(gamma)-lyz*sin(gamma);
+    std::cout<<L_pos_y<<std::endl;
+    return L_pos_y;
+}
+
+float QuadrupedForwardKinematic::calc_L_pos_z()
+{
+    L_pos_z = -h*sin(gamma)-lyz*cos(gamma);
+    std::cout<<L_pos_z<<std::endl;
+    return L_pos_z;
 }
