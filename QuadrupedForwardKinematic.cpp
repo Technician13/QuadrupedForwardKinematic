@@ -33,38 +33,61 @@ QuadrupedForwardKinematic::QuadrupedForwardKinematic()
 QuadrupedForwardKinematic::~QuadrupedForwardKinematic()
 {
     std::cout<<"The result is:  "<<std::endl
+             <<"LEFT:"<<std::endl
              <<"The X-axis:  "
              <<pos_x<<std::endl
              <<"The Y-axis:  "
-             <<pos_y<<std::endl
+             <<L_pos_y<<std::endl
              <<"The Z-axis:  "
-             <<pos_z<<std::endl;
+             <<L_pos_z<<std::endl
+
+             <<"RIGHT:"<<std::endl
+             <<"The X-axis:  "
+             <<pos_x<<std::endl
+             <<"The Y-axis:  "
+             <<R_pos_y<<std::endl
+             <<"The Z-axis:  "
+             <<R_pos_z<<std::endl;
 }
 
 float QuadrupedForwardKinematic::calc_pos_x()
 {
-    pos_x = hu*sin(alpha)+hl*cos((pi/2)+alpha-beta);
+    pos_x = hu*sin(alpha)+hl*cos((pi/2)+alpha+beta);
     std::cout<<pos_x<<std::endl;
     return pos_x;
 }
 
 double QuadrupedForwardKinematic::calc_lyz()
 {
-    lyz = hu*cos(alpha)+hl*sin((pi/2)+alpha-beta);
+    lyz = hu*cos(alpha)+hl*sin((pi/2)+alpha+beta);
     std::cout<<lyz<<std::endl;
     return lyz;
 }
 
-float QuadrupedForwardKinematic::calc_pos_y()
+float QuadrupedForwardKinematic::calc_L_pos_y()
 {
-    pos_y = -(h*cos(gamma)+lyz*sin(gamma));
-    std::cout<<pos_y<<std::endl;
-    return pos_y;
+    L_pos_y = -(h*cos(gamma)+lyz*sin(gamma));
+    std::cout<<L_pos_y<<std::endl;
+    return L_pos_y;
 }
 
-float QuadrupedForwardKinematic::calc_pos_z()
+float QuadrupedForwardKinematic::calc_L_pos_z()
 {
-    pos_z = h*sin(gamma)-lyz*cos(gamma);
-    std::cout<<pos_z<<std::endl;
-    return pos_z;
+    L_pos_z = h*sin(gamma)-lyz*cos(gamma);
+    std::cout<<L_pos_z<<std::endl;
+    return L_pos_z;
+}
+
+float QuadrupedForwardKinematic::calc_R_pos_y()
+{
+    R_pos_y = h*cos(gamma)-lyz*sin(gamma);
+    std::cout<<R_pos_y<<std::endl;
+    return R_pos_y;
+}
+
+float QuadrupedForwardKinematic::calc_R_pos_z()
+{
+    R_pos_z = -h*sin(gamma)-lyz*cos(gamma);
+    std::cout<<R_pos_z<<std::endl;
+    return R_pos_z;
 }

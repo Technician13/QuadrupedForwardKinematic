@@ -16,8 +16,10 @@ class QuadrupedForwardKinematic
         //List the functions one by one for preserving the interface
         float calc_pos_x();
         double calc_lyz();
-        float calc_pos_y();
-        float calc_pos_z();
+        float calc_L_pos_y();//Calculate the left legs' y
+        float calc_R_pos_y();//Calculate the right legs' y
+        float calc_L_pos_z();//Calculate the left legs' z
+        float calc_R_pos_z();//Calculate the right legs' z
         
     private:
         //given         
@@ -29,8 +31,10 @@ class QuadrupedForwardKinematic
         float hl;//The length of the third link
         //find
         float pos_x;//The position of the toe - X axis
-        float pos_y;//The position of the toe - Y axis
-        float pos_z;//The position of the toe - Z axis
+        float L_pos_y;//The position of the left toe - Y axis
+        float R_pos_y;//The position of the right toe - Y axis
+        float L_pos_z;//The position of the left toe - Z axis
+        float R_pos_z;//The position of the right toe - Z axis
         //middle parameters
         double lyz;//Length from top-pitch-joint to P on Y-Z      
 };

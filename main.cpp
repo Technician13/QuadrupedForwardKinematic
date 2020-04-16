@@ -18,9 +18,11 @@ int main()
     QuadrupedForwardKinematic *p=new QuadrupedForwardKinematic;
     p->calc_pos_x();
     p->calc_lyz();
-    p->calc_pos_y();
-    p->calc_pos_z();
-    
+    p->calc_L_pos_y();
+    p->calc_R_pos_y();
+    p->calc_L_pos_z();
+    p->calc_R_pos_z();
+
     delete p;
     p = nullptr;
     system("pause");
